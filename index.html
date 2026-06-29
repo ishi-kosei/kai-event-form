@@ -104,6 +104,43 @@
     margin-top: 2px;
   }
 
+  /* ===== Schedule / 当日スケジュール ===== */
+  .schedule {
+    padding: 36px 40px;
+    border-bottom: 1px solid var(--border);
+  }
+  .schedule h2 {
+    font-size: 18px;
+    color: var(--navy);
+    margin-bottom: 20px;
+    padding-left: 12px;
+    border-left: 4px solid var(--gold);
+  }
+  .timeline { list-style: none; }
+  .timeline li {
+    display: grid;
+    grid-template-columns: 70px 1fr auto;
+    align-items: baseline;
+    gap: 16px;
+    padding: 13px 0;
+    border-bottom: 1px solid #eef0f4;
+  }
+  .timeline li:last-child { border-bottom: none; }
+  .timeline .time {
+    font-weight: 700;
+    color: var(--navy);
+    font-variant-numeric: tabular-nums;
+    font-size: 15px;
+  }
+  .timeline .label { color: var(--text); }
+  .timeline .dur {
+    font-size: 12.5px;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+  .timeline li.end .label,
+  .timeline li.end .time { color: var(--gold-dark); font-weight: 700; }
+
   /* ===== Form ===== */
   form { padding: 36px 40px; }
   .form-intro {
@@ -248,7 +285,8 @@
   @media (max-width: 600px) {
     .hero { height: 240px; padding: 24px; }
     .hero h1 { font-size: 22px; }
-    .summary, form { padding: 28px 22px; }
+    .summary, .schedule, form { padding: 28px 22px; }
+    .timeline li { grid-template-columns: 56px 1fr auto; gap: 10px; }
     .detail-grid { grid-template-columns: 90px 1fr; }
     .row { flex-direction: column; gap: 0; }
   }
@@ -292,6 +330,22 @@
         <dt>主催</dt>
         <dd><a href="https://www.kai-developments.com/" target="_blank" rel="noopener">KAI Developments</a></dd>
       </dl>
+    </section>
+
+    <!-- ===== 当日スケジュール ===== -->
+    <section class="schedule">
+      <h2>当日スケジュール</h2>
+      <ul class="timeline">
+        <li><span class="time">18:00</span><span class="label">受付開始</span><span class="dur">30分</span></li>
+        <li><span class="time">18:30</span><span class="label">会スタート／開会の言葉</span><span class="dur">5分</span></li>
+        <li><span class="time">18:35</span><span class="label">運営挨拶</span><span class="dur">20分</span></li>
+        <li><span class="time">18:55</span><span class="label">グループディスカッション</span><span class="dur">15分</span></li>
+        <li><span class="time">19:10</span><span class="label">写真撮影</span><span class="dur">5分</span></li>
+        <li><span class="time">19:15</span><span class="label">フリータイム</span><span class="dur">90分</span></li>
+        <li><span class="time">20:45</span><span class="label">閉会の言葉</span><span class="dur">5分</span></li>
+        <li class="end"><span class="time">20:50</span><span class="label">終了</span><span class="dur"></span></li>
+        <li class="end"><span class="time">21:00</span><span class="label">完全撤退</span><span class="dur"></span></li>
+      </ul>
     </section>
 
     <!-- ===== 申し込みフォーム ===== -->
